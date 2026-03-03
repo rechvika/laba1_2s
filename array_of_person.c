@@ -65,3 +65,16 @@ char* get_full_birth (person* person){
     
     free(full_birth);
 }
+
+
+
+array* create_array(){
+    array* arrary_new = (array*)malloc(sizeof(array));
+
+    array_new->capacity = array->capacity;
+    array_new->size = 0;
+    array_new->element = (person**)malloc(sizeof(person*) * array_new->capacity);
+
+    return array_new;
+}
+

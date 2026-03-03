@@ -1,15 +1,5 @@
 #include "where.h"
 
-array* create_array(){
-    array* arrary_new = (array*)malloc(sizeof(array));
-
-    array_new->capacity = array->capacity;
-    array_new->size = 0;
-    array_new->element = (person**)malloc(sizeof(person*) * array_new->capacity);
-
-    return array_new;
-}
-
 void array_add(array* array, person* person){
     if (array->size >= array->capacity){
         array *= 2;
