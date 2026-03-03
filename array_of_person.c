@@ -78,3 +78,11 @@ array* create_array(){
     return array_new;
 }
 
+void array_add(array* array, person* person){
+    if (array->size >= array->capacity){
+        array *= 2;
+        array->element = (person**)realloc(array->element, sizeof(person*) * array->capacity);
+    }
+    array->size++;
+    array->element[array->size] = person;
+}

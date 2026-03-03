@@ -41,3 +41,17 @@ typedef struct array {
 } array;
 
 
+
+unsigned short get_series(person* person);
+unsigned short get_number(person* person);
+char* get_full_id (person* person);
+char* get_first_name(person* person);
+char* get_middle_name(person* person);
+char* get_last_name(person* person);
+char* get_full_name (person* person);
+unsigned short get_birth_year(person* person);
+char* get_birth_month(person* person);
+unsigned short get_birth_date(person* person);
+char* get_full_birth (person* person);
+array* create_array();
+void array_add(array* array, person* person);
