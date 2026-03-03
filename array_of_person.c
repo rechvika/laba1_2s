@@ -8,36 +8,38 @@ unsigned short get_number(person* person){
     return person->id.number;
 }
 
-char get_full_id (person* person){
+char* get_full_id (person* person){
     char* full_id = (char*)malloc(FULL_ID);
 
     sprintf(full_id, "%hu %hu", person->id.series, person->id.number);
 
     return full_id;
-    //очистка памяти
+    
+    free(full_id);
 }
 
 
 
-char get_first_name(person* person){
+char* get_first_name(person* person){
     return person->first_name;
 }
 
-char get_middle_name(person* person){
+char* get_middle_name(person* person){
     return person->middle_name;
 }
 
-char get_last_name(person* person){
+char* get_last_name(person* person){
     return person->last_name;
 }
 
-char get_full_name (person* person){
+char* get_full_name (person* person){
     char* full_name = (char*)malloc(FULL_NAME);
 
     sprintf(full_name, "%c %c %c", person->first_name, person->middle_name, person->last_name);
 
     return full_name;
-    //очистка памяти
+    
+    free(full_name);
 }
 
 
@@ -46,7 +48,7 @@ unsigned short get_birth_year(person* person){
     return person->birth.year;
 }
 
-char get_birth_month(person* person){
+char* get_birth_month(person* person){
     return person->birth.month;
 }
 
@@ -54,11 +56,12 @@ unsigned short get_birth_date(person* person){
     return person->birth.date;
 }
 
-char get_full_birth (person* person){
+char* get_full_birth (person* person){
     char* full_birth = (char*)malloc(FULL_BIRTH);
 
     sprintf(full_birth, "%hu %c %hu", person->birth.year, person->birth.month, person->birth.date);
 
     return full_birth;
-    //очистка памяти
+    
+    free(full_birth);
 }
