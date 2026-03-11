@@ -86,3 +86,17 @@ void array_add(array* array, person* person){
     array->size++;
     array->element[array->size] = person;
 }
+
+void free_array(array* array){
+    free(array->element);
+    free(array);
+}
+
+
+
+char* map_function(person* person){
+    char* result = (char*)malloc(20);
+    sprintf(result, "mapped_%s", person->first_name);
+    return result;
+}
+

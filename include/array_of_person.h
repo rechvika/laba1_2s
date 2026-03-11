@@ -15,14 +15,14 @@
 
 
 typedef struct person_id{
-    unsigned short series[LINE_SERIES_AND_YEAR];
-    unsigned short number[LINE_NUMBER];
+    unsigned short series;
+    unsigned short number;
 } person_id;
 
 typedef struct birth_date{
-    unsigned short year[LINE_SERIES_AND_YEAR];
+    unsigned short year;
     char month[MAX_LINE_MONTH];
-    unsigned short date[MAX_LINE_DATE];
+    unsigned short date;
 } birth_date;
 
 
