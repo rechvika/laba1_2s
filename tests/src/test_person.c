@@ -1,4 +1,4 @@
-//#include "assertions.h"
+#include "assertions.h"
 //#include "testing.h"
 #include "array_of_person.h"
 #include "where.h"
