@@ -100,3 +100,8 @@ char* map_function(person* person){
     return result;
 }
 
+char* map_function_2(person* person){
+    char* result = (char*)malloc(20);
+    sprintf(result, "mapped_%s", person->middle_name);
+    return result;
+}
