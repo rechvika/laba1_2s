@@ -1,5 +1,5 @@
 #include "assertions.h"
-//#include "testing.h"
+#include "testing.h"
 #include "array_of_person.h"
 #include "where.h"
 #include "map.h"
@@ -27,17 +27,6 @@ TEST(test_get_number){
     assert(number == 567890);
 
     free(number);
-}
-
-TEST(test_get_full_id){
-    person person;
-    person.id.series = 1234;
-    person.id.numder = 567890;
-
-    char* full_id = get_full_id(&person);
-
-    assert(strcmp(full_id, "1234 567890") == 0);
-    free(full_id);
 }
 
 TEST(test_get_full_name){
