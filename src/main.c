@@ -28,59 +28,113 @@ int main(){
 
             case '1':
                 printf("+++ Вы выбрали получить серию паспорта +++\n");
-                //ВЫВОД функция
+                person person;
+                printf("Серия паспорта: %u\n", get_series(&person));
                 break;
+
             case '2':
                 printf("+++ Вы выбрали получить номер паспорта +++\n");
-                //функция
+                person person;
+                printf("Номер паспорта: %u\n", get_number(&person));
                 break;
+
             case '12':
                 printf("+++ Вы выбрали получить id (серию и номер) +++\n");
-                //функция
+                person person;
+                printf("id: %c\n", get_full_id(&person));
                 break;
+
             case '3':
                 printf("+++ Вы выбрали получить имя +++\n");
-                //функция
+                person person;
+                printf("Имя: %c\n", get_first_name(&person));
                 break;
+
             case '4':
                 printf("+++ Вы выбрали получить фамилию +++\n");
-                //функция
+                person person;
+                printf("Фамилия: %c\n", get_middle_name(&person));
                 break;
+
             case '5':
                 printf("+++ Вы выбрали получить отчество +++\n");
-                //функция
+                person person;
+                printf("Отчество: %c\n", get_last_name(&person));
                 break;
+
             case '345':
                 printf("+++ Вы выбрали получить ФИО +++\n");
-                //функция
+                person person;
+                printf("ФИО: %c\n", get_full_name(&person));
                 break;
+
             case '6':
                 printf("+++ Вы выбрали получить год рождения +++\n");
-                //функция
+                person person;
+                printf("Год: %u\n", get_birth_year(&person));
                 break;
+
             case '7':
                 printf("+++ Вы выбрали получить месяц рождения +++\n");
-                //функция
+                person person;
+                printf("Месяц: %c\n", get_birth_month(&person));
                 break;
+
             case '8':
                 printf("+++ Вы выбрали получить день рождения +++\n");
-                //функция
+                person person;
+                printf("День: %u\n", get_birth_date(&person));
                 break;
+
             case '678':
                 printf("+++ Вы выбрали получить дату рождения +++\n");
-                //функция
+                person person;
+                printf("Дата рождения: %c\n", get_full_birth(&person));
                 break;
+
             case '17':
                 printf("+++ Вы выбрали получить массив совершеннолетних людей +++\n");
-                //функция
+                person person;
+                array* array;
+
+                array* age_person = (array*)malloc(array->size);
+                strcpy(age_person, where(array* array, unsigned short (*age_verification)(person*)));
+                char* age_person_2;
+
+                printf("Массив совершеннолетних людей: %c\n", age_person);
+                free(age_person);
                 break;
+
             case '33':
                 printf("+++ Вы выбрали получить массив имен людей +++\n");
-                //функция
+                array* array;
+                person person;
+
+                array* name_array = (array*)malloc(array->size);
+                strcpy(name_array, map(array* array, char* (*map_function)(person*)));
+                char* name_array_2;
+                
+                printf("Массив имен людей: %c\n", name_array_2);
+                free(name_array);
                 break;
             case '34':
                 printf("+++ Вы выбрали получить массив сначала имен потом фамилий людей +++\n");
-                //функция
+                array* array;
+                person person;
+
+                array* name_array = (array*)malloc(array->size);
+                array* middle_array = (array*)malloc(array->size);
+                array* full_array = (array*)malloc(array->size);
+                full_array = concatenation(array* name_array, array* middle_array);
+                
+                char* full_array_2
+                
+                strcpy(full_array_2, full_array);
+                printf("Массив имен затем фамилий людей: %c\n", full_array_2);
+
+                free(name_array);
+                free(middle_array);
+                free(full_array);
                 break;
     
             default:
