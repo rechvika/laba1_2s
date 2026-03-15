@@ -8,11 +8,11 @@
 #define FULL_ID 10
 #define FULL_NAME 300
 #define FULL_BIRTH 15
+#define MAP_CONST 120
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 
 typedef struct person_id{
     unsigned short series;
@@ -24,7 +24,6 @@ typedef struct birth_date{
     char month[MAX_LINE_MONTH];
     unsigned short date;
 } birth_date;
-
 
 typedef struct person{
     person_id id;
@@ -40,18 +39,19 @@ typedef struct array {
     unsigned int capacity;
 } array;
 
-
-
-unsigned short get_series(person* person);
-unsigned short get_number(person* person);
-char* get_full_id (person* person);
-char* get_first_name(person* person);
-char* get_middle_name(person* person);
-char* get_last_name(person* person);
-char* get_full_name (person* person);
-unsigned short get_birth_year(person* person);
-char* get_birth_month(person* person);
-unsigned short get_birth_date(person* person);
-char* get_full_birth (person* person);
-array* create_array();
-void array_add(array* array, person* person);
+unsigned short get_series(person* p);
+unsigned short get_number(person* p);
+char* get_full_id (person* p);
+char* get_first_name(person* p);
+char* get_middle_name(person* p);
+char* get_last_name(person* p);
+char* get_full_name (person* p);
+unsigned short get_birth_year(person* p);
+char* get_birth_month(person* p);
+unsigned short get_birth_date(person* p);
+char* get_full_birth (person* p);
+array* create_array(unsigned int capacity);
+void array_add(array* arr, person* p);
+void free_array(array* arr);
+int is_array_empty(array* arr);
+char* map_function(person* p)

@@ -1,10 +1,11 @@
 #include "map.h"
 
-array* map(array* array, char* (*function)(person*)){
-    array* map_array = create_array();
+array* map(array* arr, char* (*function)(person*)){
+    array* map_array = create_array(arr->size);
     
-    for(unsigned int i = 0; i < array->size; i++){
-        map_array[i] = function(array->element[i]);
+    for(unsigned int i = 0; i < arr->size; i++){
+        char* result = function(arr->element[i]);
+        array_add(map_array, (person*)result);
     }
 
     return map_array;

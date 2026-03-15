@@ -1,6 +1,6 @@
-#pragma onse
+#pragma once
 
 #include "array_of_person.h"
 
 
-array* map(array* array, char* (*function)(person*));
+array* map(array* arr, char* (*function)(person*));

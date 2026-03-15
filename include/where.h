@@ -3,5 +3,5 @@
 #include "array_of_person.h"
 
 
-unsigned short age_verification(person* person);
-array* where(array* array, unsigned short (*function)(person*));
+unsigned short age_verification(person* p);
+array* where(array* arr, unsigned short (*function)(person*));
