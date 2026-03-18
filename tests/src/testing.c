@@ -3,7 +3,7 @@
 static _test* head = NULL;
 static _test* tail = NULL;
 
-void register_test(const char* name, test_func test){
+void register_test(const char* name, test_func test){ // дописать раздельные тесты
     _test* tmp = malloc(sizeof(_test));
     tmp->name = name;
     tmp->test = test;

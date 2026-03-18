@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Iinclude -Itests/include
 LDFLAGS = 
-LDLIBS = -lm
+LDLIBS = -lm #это для математических функций
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -9,7 +9,7 @@ BUILD_DIR = build
 
 SRCS = $(SRC_DIR)/array_of_person.c $(SRC_DIR)/concatenation.c \
        $(SRC_DIR)/map.c $(SRC_DIR)/where.c \
-	   $(SRC_DIR)/test_person.c
+	   $(SRC_DIR)/test_person.c $(SRC_DIR)/person_typeinfo.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 

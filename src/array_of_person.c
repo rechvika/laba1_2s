@@ -9,7 +9,7 @@ unsigned short get_number(person* p){
 }
 
 char* get_full_id (person* p){
-    char* full_id = (char*)malloc(FULL_ID);
+    char* full_id = (char*)malloc(FULL_ID);// сделать побольше макровсвм
 
     sprintf(full_id, "%hu %hu", p->id.series, p->id.number);
 
@@ -60,22 +60,22 @@ char* get_full_birth (person* p){
 
 
 
-array* create_array(unsigned int capacity){
+array* create_array(unsigned int capacity, typeinfo* type_info){
     array* array_new = (array*)malloc(sizeof(array));
 
     array_new->capacity = capacity;
     array_new->size = 0;
-    array_new->element = (person**)malloc(sizeof(person*) * array_new->capacity);
+    array_new->element = (person*)malloc(type_info->size * array_new->capacity);
 
     return array_new;
 }
 
 void array_add(array* arr, person* p){
     if (arr->size >= arr->capacity){
-        arr->capacity *= 2;
-        arr->element = (person**)realloc(arr->element, sizeof(person*) * arr->capacity);
+        arr->capacity *= 2; // учитывать размер (если например персона состоит только из id и фамилии)
+        arr->element = (person*)realloc(arr->element, arr->typeinfo->size * arr->capacity); //не ** а *, одна персона четко лежит за другой
     }
-    arr->element[arr->size] = p;
+    memcpy((char*)arr->element +(arr->size * arr->typeinfo->size), p, arr->typeinfo->size);
     arr->size++;
 }
 
@@ -93,7 +93,3 @@ char* map_function(person* p){
 }
 
 
-int is_array_empty(array* arr){
-    if(arr == NULL) return 1;
-    return arr->size == 0; 
-}

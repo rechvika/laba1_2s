@@ -4,6 +4,7 @@
 #include "map.h"
 #include "where.h"
 #include "test_person.h"
+#include "person_typeinfo.h"
 
 void show_buttons(void);
 
@@ -28,57 +29,57 @@ int main(){
         switch(choice){
             case '1':
                 printf("+++ Вы выбрали получить серию паспорта +++\n");
-                printf("Серия паспорта: %u\n", get_series(persons->element[0]));
+                printf("Серия паспорта: %u\n", get_series(&persons->element[0]));
                 break;
 
             case '2':
                 printf("+++ Вы выбрали получить номер паспорта +++\n");
-                printf("Номер паспорта: %u\n", get_number(persons->element[0]));
+                printf("Номер паспорта: %u\n", get_number(&persons->element[0]));
                 break;
 
             case '12':
                 printf("+++ Вы выбрали получить id (серию и номер) +++\n");
-                printf("id: %s\n", get_full_id(persons->element[0]));
+                printf("id: %s\n", get_full_id(&persons->element[0]));
                 break;
 
             case '3':
                 printf("+++ Вы выбрали получить имя +++\n");
-                printf("Имя: %s\n", get_first_name(persons->element[0]));
+                printf("Имя: %s\n", get_first_name(&persons->element[0]));
                 break;
 
             case '4':
                 printf("+++ Вы выбрали получить фамилию +++\n");
-                printf("Фамилия: %s\n", get_middle_name(persons->element[0]));
+                printf("Фамилия: %s\n", get_middle_name(&persons->element[0]));
                 break;
 
             case '5':
                 printf("+++ Вы выбрали получить отчество +++\n");
-                printf("Отчество: %s\n", get_last_name(persons->element[0]));
+                printf("Отчество: %s\n", get_last_name(&persons->element[0]));
                 break;
 
             case '345':
                 printf("+++ Вы выбрали получить ФИО +++\n");
-                printf("ФИО: %s\n", get_full_name(persons->element[0]));
+                printf("ФИО: %s\n", get_full_name(&persons->element[0])); // обработка ошибок
                 break;
 
             case '6':
                 printf("+++ Вы выбрали получить год рождения +++\n");
-                printf("Год: %u\n", get_birth_year(persons->element[0]));
+                printf("Год: %u\n", get_birth_year(&persons->element[0])); // переписать чтобы выводились строки
                 break;
 
             case '7':
                 printf("+++ Вы выбрали получить месяц рождения +++\n");
-                printf("Месяц: %s\n", get_birth_month(persons->element[0]));
+                printf("Месяц: %s\n", get_birth_month(&persons->element[0]));
                 break;
 
             case '8':
                 printf("+++ Вы выбрали получить день рождения +++\n");
-                printf("День: %u\n", get_birth_date(persons->element[0]));
+                printf("День: %u\n", get_birth_date(&persons->element[0]));
                 break;
 
             case '678':
                 printf("+++ Вы выбрали получить дату рождения +++\n");
-                printf("Дата рождения: %s\n", get_full_birth(persons->element[0]));
+                printf("Дата рождения: %s\n", get_full_birth(&persons->element[0]));
                 break;
 
             case '17':

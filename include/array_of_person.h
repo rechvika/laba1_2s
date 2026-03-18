@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "typeinfo.h"
 
 typedef struct person_id{
     unsigned short series;
@@ -33,10 +34,11 @@ typedef struct person{
     birth_date birth;
 } person;
 
-typedef struct array {
-    person** element;
+typedef struct array { // полимрофизм tipeinfo
+    person* element;
     unsigned int size;
     unsigned int capacity;
+    typeinfo* typeinfo;
 } array;
 
 unsigned short get_series(person* p);
@@ -50,8 +52,7 @@ unsigned short get_birth_year(person* p);
 char* get_birth_month(person* p);
 unsigned short get_birth_date(person* p);
 char* get_full_birth (person* p);
-array* create_array(unsigned int capacity);
+array* create_array(unsigned int capacity, typeinfo* type_info);
 void array_add(array* arr, person* p);
 void free_array(array* arr);
-int is_array_empty(array* arr);
-char* map_function(person* p)
+char* map_function(person* p);

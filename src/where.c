@@ -6,11 +6,12 @@ unsigned short age_verification(person* p) {
 }
 
 array* where(array* arr, unsigned short (*function)(person*)){
-    array* where_array = create_array(arr->size);
+    array* where_array = create_array(arr->size, arr->typeinfo);
 
     for(unsigned int i = 0; i < arr->size; i++){
-        if(function(arr->element[i])){
-            array_add(where_array, arr->element[i]);
+        void* elem = (char*)arr->element +(i * arr->typeinfo->size);
+        if(function(elem)){
+            array_add(where_array, elem);
         }
     }
     return where_array;

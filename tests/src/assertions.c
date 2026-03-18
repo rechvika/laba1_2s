@@ -32,7 +32,8 @@ int assert_fail(const char* expr, const char* file, size_t leneno){
 }
 
 iint assert_success(const char* expr, const char* file, size_t lineno) {
-    fprintf(stderr, "\033[0;32m%s:%d:\t %s PASSED \033[0m\n", file, lineno, expr);    inc_success();
+    fprintf(stderr, "\033[0;32m%s:%d:\t %s PASSED \033[0m\n", file, lineno, expr);   
+    inc_success();
     return 0;
 }
 

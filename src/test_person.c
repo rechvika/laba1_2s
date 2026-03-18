@@ -1,8 +1,11 @@
 #include "test_person.h"
+#include "person_typeinfo.h"
 
 array* create_test_person(){
 
-    array* test_array = create_array(5);
+    typeinfo* person_type = get_person_typeinfo();
+
+    array* test_array = create_array(5, person_type);
     
     person p1;
     p1.id.series = 1234;
