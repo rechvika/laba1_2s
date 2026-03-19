@@ -5,7 +5,7 @@
 #include "where.h"
 #include "test_person.h"
 #include "person_typeinfo.h"
-#include "tests.c"
+#include "array_errors.h"
 
 void show_buttons(void);
 
@@ -14,6 +14,7 @@ int main(){
 
     char choice;
     int running = 1;
+    array_errors error;
 
     array* persons = create_test_person();
 
@@ -23,85 +24,144 @@ int main(){
         show_buttons();
 
         printf("\nНажми нужную клавишу и Enter");
-        scanf("%c", &choice);
+        scanf(" %c", &choice);
 
         printf("\n");
 
         switch(choice){
             case '1':
                 printf("+++ Вы выбрали получить серию паспорта +++\n");
-                printf("Серия паспорта: %u\n", get_series(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Серия паспорта: %u\n", get_series(&persons->element[0]), &error);
+                } else{
+                    printf("Ошибка получения серии: %d\n", error);
+                }
                 break;
 
             case '2':
                 printf("+++ Вы выбрали получить номер паспорта +++\n");
-                printf("Номер паспорта: %u\n", get_number(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Номер паспорта: %u\n", get_number(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '12':
                 printf("+++ Вы выбрали получить id (серию и номер) +++\n");
-                printf("id: %s\n", get_full_id(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("id: %s\n", get_full_id(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '3':
                 printf("+++ Вы выбрали получить имя +++\n");
-                printf("Имя: %s\n", get_first_name(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Имя: %s\n", get_first_name(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '4':
                 printf("+++ Вы выбрали получить фамилию +++\n");
-                printf("Фамилия: %s\n", get_middle_name(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Фамилия: %s\n", get_middle_name(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '5':
                 printf("+++ Вы выбрали получить отчество +++\n");
-                printf("Отчество: %s\n", get_last_name(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Отчество: %s\n", get_last_name(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '345':
                 printf("+++ Вы выбрали получить ФИО +++\n");
-                printf("ФИО: %s\n", get_full_name(&persons->element[0])); // обработка ошибок
+                if (error == ARRAY_OPERATION_OK){
+                    printf("ФИО: %s\n", get_full_name(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '6':
                 printf("+++ Вы выбрали получить год рождения +++\n");
-                printf("Год: %u\n", get_birth_year(&persons->element[0])); // переписать чтобы выводились строки
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Год: %u\n", get_birth_year(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                } // переписать чтобы выводились строки
                 break;
 
             case '7':
                 printf("+++ Вы выбрали получить месяц рождения +++\n");
-                printf("Месяц: %s\n", get_birth_month(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Месяц: %s\n", get_birth_month(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '8':
                 printf("+++ Вы выбрали получить день рождения +++\n");
-                printf("День: %u\n", get_birth_date(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("День: %u\n", get_birth_date(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '678':
                 printf("+++ Вы выбрали получить дату рождения +++\n");
-                printf("Дата рождения: %s\n", get_full_birth(&persons->element[0]));
+                if (error == ARRAY_OPERATION_OK){
+                    printf("Дата рождения: %s\n", get_full_birth(&persons->element[0]), &error);
+                } else {
+                    printf("Ошибка получения номера: %d\n", error);
+                }
                 break;
 
             case '17':
                 printf("+++ Вы выбрали получить массив совершеннолетних людей +++\n");
 
-                char* age_person;
-                strcpy(age_person, where(persons, age_verification));
+                array* age_person = where(persons, age_verification, &error);
 
-                printf("Массив совершеннолетних людей: %s\n", age_person);
-                free(age_person);
+                if (error == ARRAY_OPERATION_OK && age_person != NULL) {
+                    printf("Найдено совершеннолетних: %u\n", age_person->size);
+                    
+                    for (unsigned int i = 0; i < age_person->size; i++) {
+                        person* p = (person*)((char*)age_person->element + (i * age_person->typeinfo->size));
+                        char* full_name = get_full_name(p, &error);
+                        if (error == ARRAY_OPERATION_OK && full_name != NULL) {
+                            printf("%d. %s\n", i + 1, full_name);
+                            free(full_name);
+                        }
+                    }
+                    
+                    free_array(age_person);
+                } else {
+                    printf("Ошибка получения массива: %d\n", error);
+                }
                 break;
 
             case '33':
                 printf("+++ Вы выбрали получить массив имен людей +++\n");
-                array* arr;
 
-                char* name_array;
-                strcpy(name_array, map(persons, get_first_name));
-
-                printf("Массив имен людей: %s\n", name_array);
-                free(name_array);
+                printf("Имена в массиве:\n");
+                for (unsigned int i = 0; i < persons->size; i++) {
+                    person* p = (person*)((char*)persons->element + (i * persons->typeinfo->size));
+                    char* first_name = get_first_name(p, &error);
+                    if (error == ARRAY_OPERATION_OK && first_name != NULL) {
+                        printf("%d. %s\n", i + 1, first_name);
+                    }
+                }
                 break;
     
             default:
