@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "typeinfo.h"
+#include "array_errors.h"
 
 typedef struct person_id{
     unsigned short series;
@@ -34,25 +35,25 @@ typedef struct person{
     birth_date birth;
 } person;
 
-typedef struct array { // полимрофизм tipeinfo
+typedef struct array { 
     person* element;
     unsigned int size;
     unsigned int capacity;
     typeinfo* typeinfo;
 } array;
 
-unsigned short get_series(person* p);
-unsigned short get_number(person* p);
-char* get_full_id (person* p);
-char* get_first_name(person* p);
-char* get_middle_name(person* p);
-char* get_last_name(person* p);
-char* get_full_name (person* p);
-unsigned short get_birth_year(person* p);
-char* get_birth_month(person* p);
-unsigned short get_birth_date(person* p);
-char* get_full_birth (person* p);
-array* create_array(unsigned int capacity, typeinfo* type_info);
-void array_add(array* arr, person* p);
+unsigned short get_series(person* p, array_errors* error);
+unsigned short get_number(person* p, array_errors* error);
+char* get_full_id (person* p, array_errors* error);
+char* get_first_name(person* p, array_errors* error);
+char* get_middle_name(person* p, array_errors* error);
+char* get_last_name(person* p, array_errors* error);
+char* get_full_name (person* p, array_errors* error);
+unsigned short get_birth_year(person* p, array_errors* error);
+char* get_birth_month(person* p, array_errors* error);
+unsigned short get_birth_date(person* p, array_errors* error);
+char* get_full_birth (person* p, array_errors* error);
+array* create_array(unsigned int capacity, typeinfo* type_info, array_errors* error);
+void array_add(array* arr, person* p, array_errors* error);
 void free_array(array* arr);
-char* map_function(person* p);
+char* map_function(person* p, array_errors* error);

@@ -13,8 +13,6 @@ TEST(test_get_series){
     unsigned short series = get_series(&person);
 
     assert(series == 1234);
-
-    free(series);
 }
 
 TEST(test_get_number){
@@ -25,8 +23,6 @@ TEST(test_get_number){
     unsigned short number = get_number(&person);
 
     assert(number == 567890);
-
-    free(number);
 }
 
 TEST(test_get_full_name){
@@ -38,10 +34,8 @@ TEST(test_get_full_name){
     char* full_name = get_full_name(&person);
 
     assert(strcmp(full_name, "Карабас Барабас Спанчбобович") == 0);
-    free(full_name);
 }
 
-//клаааааасс
 TEST(test_get_birth){
     person person;
     person.birth.yar = 2007;
@@ -55,8 +49,6 @@ TEST(test_get_birth){
     assert(get_birth_date(&person) == 13);
 
     assert(strcmp(full_birth, "2007 Июнь 13") == 0);
-
-    free(full_birth);
 }
 
 TEST(test_create_array){
@@ -66,8 +58,6 @@ TEST(test_create_array){
     assert(array->capacity == 5);
     assert(array->size == 0);
     assert(array->element != NULL);
-
-    free_array(arr)
 }
 
 TEST(test_array_add){
@@ -83,8 +73,6 @@ TEST(test_array_add){
     assert(array->element[0] == &person_1);
     assert(array->element[1] == &person_2);
     assert(array->element[2] == &person_3);
-
-    free_array(array);
 }
 
 TEST(test_age_verification){
@@ -94,8 +82,6 @@ TEST(test_age_verification){
     unsigned short age = age_verification(&person);
 
     assert(age == 1);
-
-    free(age);
 }
 
 TEST(test_where){
@@ -115,9 +101,6 @@ TEST(test_where){
     assert(t_where->element[0] == &person_1);
     assert(t_where->element[1] == &person_2);
     assert(t_where->element[2] == &person_3);
-
-    free_array(array);
-    free_array(t_where);
 }
 
 TEST(test_map){
@@ -134,12 +117,6 @@ TEST(test_map){
     assert(mapped->size == 2);
     assert(strcmp(mapped->element[0], "mapped_Патрик") == 0);
     assert(strcmp(mapped->element[1], "mapped_Сквидварт") == 0);
-
-    for(int = 0; i < mapped->size; i++){
-        free(mapped->element[i]);
-    }
-    free_array(array);
-    free_array(mapped);
 }
 
 TEST(test_concatenation){
@@ -159,10 +136,8 @@ TEST(test_concatenation){
     assert(result->element[1] == &person_2);
     assert(result->element[2] == &person_3);
     assert(result->element[3] == &person_4);
-
-    free_array(array_1);
-    free_array(array_2);
-    free_array(result);
 }
+
+
 
 TEST_ENTRY_POINT

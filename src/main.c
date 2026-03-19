@@ -5,6 +5,7 @@
 #include "where.h"
 #include "test_person.h"
 #include "person_typeinfo.h"
+#include "tests.c"
 
 void show_buttons(void);
 

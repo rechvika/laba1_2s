@@ -1,0 +1,11 @@
+#pragma once 
+
+typedef enum {
+    ARRAY_OPERATION_OK = 0,
+    MEMORY_ALLOCATION_FAILED = 100,
+    ARRAY_NOT_DEFINED = 200,
+    OPERATION_NOT_DEFINED = 201,
+    PERSON_NOT_DEFINED = 202,
+    INVALID_INDEX = 300,
+    INCOMPATIBLE_TYPES = 400
+} array_errors;
