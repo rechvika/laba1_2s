@@ -201,3 +201,5 @@ char* map_function(person* p, array_errors* error){
 }
 
 
+//это для математических функций
+//винда
