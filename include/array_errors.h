@@ -7,6 +7,7 @@ typedef enum {
     OPERATION_NOT_DEFINED = 201,
     PERSON_NOT_DEFINED = 202,
     INVALID_INDEX = 300,
+    INDEX_OUT_OF_BOUNDS = 301,
     INCOMPATIBLE_TYPES = 400,
     WRONG_TYPE = 401
 } array_errors;
