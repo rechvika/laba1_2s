@@ -1,4 +1,4 @@
-#include "map.h"
+#include "operation.h"
 
 array* map(array* arr, char* (*function)(person*, array_errors* error), array_errors* error){
     if (arr == NULL) {

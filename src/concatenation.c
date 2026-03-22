@@ -1,5 +1,6 @@
-#include "concatenation.h"
+#include "operation.h"
 
+//не копировать поэлементно
 array* concatenation(array* arr_1, array* arr_2, array_errors* error){
     if (arr_1 == NULL || arr_2 == NULL) {
         *error = ARRAY_NOT_DEFINED;

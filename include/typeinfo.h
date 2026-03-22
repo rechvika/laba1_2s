@@ -14,3 +14,7 @@ typedef struct{
     where_function_by_struct where;
     void (*print)(const void*);
 } typeinfo;
+
+
+//// c
+size_t size()
