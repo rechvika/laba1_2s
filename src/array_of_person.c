@@ -241,4 +241,40 @@ char* map_function(array* arr, unsigned int i, array_errors* error){
     return result;
 }
 
+
+char* get_teacher_subject(array* arr, unsigned int i, array_errors* error){
+    if (arr == NULL) {
+        *error = ARRAY_NOT_DEFINED;
+        return NULL;
+    }
+    if (i >= arr->size) {
+        *error = INDEX_OUT_OF_BOUNDS;
+        return NULL;
+    }
+    
+    *error = ARRAY_OPERATION_OK;
+    return ((teacher*)&arr->element[i])->data.subject;
+}
+
+char* get_student_direction(array* arr, unsigned int i, array_errors* error){
+    if (arr == NULL) {
+        *error = ARRAY_NOT_DEFINED;
+        return NULL;
+    }
+    if (i >= arr->size) {
+        *error = INDEX_OUT_OF_BOUNDS;
+        return NULL;
+    }
+    
+    *error = ARRAY_OPERATION_OK;
+    return ((student*)&arr->element[i])->data.direction;
+}
+
+
+
+
+
+
+
+
 //мэйк 

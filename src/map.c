@@ -1,6 +1,6 @@
 #include "operation.h"
 
-array* map(array* arr, char* (*function)(person*, array_errors* error), array_errors* error){
+array* map(array* arr, char* (*function)(array*, unsigned int, array_errors*), array_errors* error){
     if (arr == NULL) {
         *error = ARRAY_NOT_DEFINED;
         return NULL;
@@ -17,9 +17,9 @@ array* map(array* arr, char* (*function)(person*, array_errors* error), array_er
         return NULL;
     }
     string_typeinfo->size = sizeof(char*);
+    string_typeinfo->type_name = "string";
 
-
-    array* map_array = create_array(arr->size, arr->typeinfo, &temp_error);
+    array* map_array = create_array(arr->size, string_typeinfo, &temp_error);
     if (temp_error != ARRAY_OPERATION_OK) {
         free(string_typeinfo);
         *error = temp_error;
@@ -27,8 +27,7 @@ array* map(array* arr, char* (*function)(person*, array_errors* error), array_er
     }
     
     for(unsigned int i = 0; i < arr->size; i++){
-        person* elem = (person*)((char*)arr->element + (i * arr->typeinfo->size));
-        char* result = function(elem, &temp_error);
+        char* result = function(arr, i, &temp_error);
         
         if (temp_error != ARRAY_OPERATION_OK) {
             free_array(map_array);
@@ -38,6 +37,14 @@ array* map(array* arr, char* (*function)(person*, array_errors* error), array_er
         }
         
         char** str_storage = (char**)malloc(sizeof(char*));
+        if (str_storage == NULL) {
+            free(result);
+            free_array(map_array);
+            free(string_typeinfo);
+            *error = MEMORY_ALLOCATION_FAILED;
+            return NULL;
+        }
+        
         *str_storage = result;
         array_add(map_array, (person*)str_storage, &temp_error);
         
@@ -54,3 +61,4 @@ array* map(array* arr, char* (*function)(person*, array_errors* error), array_er
     *error = ARRAY_OPERATION_OK;
     return map_array;
 }
+
