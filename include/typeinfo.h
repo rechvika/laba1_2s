@@ -5,6 +5,7 @@
 #include <string.h>
 #include "array_errors.h"
 #include "array_of_person.h"
+#include "types.h"
 
 
 typedef struct typeinfo {

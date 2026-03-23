@@ -2,6 +2,11 @@
 
 #include "array_of_person.h"
 #include "array_errors.h"
+#include "operation.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "types.h"
 
 char* serialize_series(array* arr, unsigned int i, array_errors* error);
 char* serialize_number(array* arr, unsigned int i, array_errors* error);

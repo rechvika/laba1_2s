@@ -1,8 +1,5 @@
 #include "serialize.h"
-#include "operation.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 char* serialize_series(array* arr, unsigned int i, array_errors* error){
     if (arr == NULL || i >= arr->size) {

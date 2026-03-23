@@ -2,6 +2,7 @@
 
 #include "array_of_person.h"
 #include "array_errors.h"
+#include "types.h"
 
 
 array* map(array* arr, char* (*function)(array*, unsigned int, array_errors*), array_errors* error);
