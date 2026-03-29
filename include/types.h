@@ -47,18 +47,18 @@ typedef struct person{
 } person;
 
 typedef struct teacher{
-    person* base;
+    person base;
     record_teacher data;
 } teacher;
 
 typedef struct student{
-    person* base;
+    person base;
     record_student data;
 } student;
 
 typedef struct array { 
-    person* element;
+    struct person* element;
     unsigned int size;
     unsigned int capacity;
-    typeinfo* typeinfo;
+    struct typeinfo* typeinfo;
 } array;

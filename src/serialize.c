@@ -227,7 +227,7 @@ char* serialize_where_list(array* arr, array_errors* error){
         return NULL;
     }
     
-    char* result = (char*)malloc(array->capacity);
+    char* result = (char*)malloc(arr->capacity);
     if (result == NULL) {
         free_array(adults);
         *error = MEMORY_ALLOCATION_FAILED;
@@ -257,7 +257,7 @@ char* serialize_map_list(array* arr, array_errors* error){
         return NULL;
     }
 
-    char* result = (char*)malloc(array->capacity);
+    char* result = (char*)malloc(arr->capacity);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -275,5 +275,56 @@ char* serialize_map_list(array* arr, array_errors* error){
         }
     }
     
+    return result;
+}
+
+char* serialize_person(array* arr, unsigned int i, array_errors* error){
+    if (arr == NULL || i >= arr->size) {
+        if (error) *error = ARRAY_NOT_DEFINED;
+        return NULL;
+    }
+
+    unsigned short series = get_series(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    unsigned short number = get_number(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    char* first_name = get_first_name(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    char* last_name = get_last_name(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    char* middle_name = get_middle_name(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    unsigned short year = get_birth_year(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    char* month = get_birth_month(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+    unsigned short date = get_birth_date(arr, i, error);
+    if (*error != ARRAY_OPERATION_OK) return NULL;
+
+
+    char* result = (char*)malloc(500);
+    if (result == NULL) {
+        *error = MEMORY_ALLOCATION_FAILED;
+        return NULL;
+    }
+
+    sprintf(result, 
+        "Фамилия: %s\n"
+        "Имя: %s\n"
+        "Отчество: %s\n"
+        "id: %hu %hu\n"
+        "Дата рождения: %hu %s %hu\n",
+        last_name, first_name, middle_name,
+        series, number,
+        date, month, year);
+
+    *error = ARRAY_OPERATION_OK;
     return result;
 }

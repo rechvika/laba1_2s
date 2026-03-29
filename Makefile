@@ -17,7 +17,8 @@ SRCS = $(SRC_DIR)/array_of_person.c \
        $(SRC_DIR)/where.c \
        $(SRC_DIR)/serialize.c \
        $(SRC_DIR)/typeinfo.c \
-       $(SRC_DIR)/test_person.c
+       $(SRC_DIR)/test_person.c \
+       $(SRC_DIR)/conclusion.c
 
 TEST_SRCS = $(TESTS_SRC_DIR)/tests_array.c \
             $(TESTS_SRC_DIR)/tests_base.c \
@@ -36,25 +37,27 @@ TEST_OBJS = $(TEST_SRCS:$(TESTS_SRC_DIR)/%.c=$(OBJ_DIR)/tests/%.o)
 TARGET = $(BUILD_DIR)/program.exe
 TEST_TARGET = $(BUILD_DIR)/tests.exe
 
-.PHONY: all clean test
+.PHONY: all clean test run
 
 all: $(TARGET)
 
+run: $(TARGET)
+	./$(TARGET)
+
 $(TARGET): $(SRC_DIR)/main.c $(OBJS)
-	@mkdir -p $(BUILD_DIR)
+	mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 test: $(TEST_TARGET)
-	$(TEST_TARGET)
+	./$(TEST_TARGET)
 
 $(TEST_TARGET): $(TEST_SRCS) $(OBJS)
-	@mkdir -p $(BUILD_DIR)
+	mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
+	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@if exist $(OBJ_DIR) rmdir /s /q $(OBJ_DIR) 2>nul || (rm -rf $(OBJ_DIR))
-	@if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR) 2>nul || (rm -rf $(BUILD_DIR))
+	rm -rf $(OBJ_DIR) $(BUILD_DIR)

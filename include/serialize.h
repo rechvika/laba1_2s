@@ -21,3 +21,4 @@ char* serialize_birth_date(array* arr, unsigned int i, array_errors* error);
 char* serialize_full_birth(array* arr, unsigned int i, array_errors* error);
 char* serialize_where_list(array* arr, array_errors* error);
 char* serialize_map_list(array* arr, array_errors* error);
+char* serialize_person(array* arr, unsigned int i, array_errors* error);

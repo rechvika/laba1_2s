@@ -69,7 +69,7 @@ char* get_middle_name(array* arr, unsigned int i, array_errors* error){
         return NULL;
     }
     *error = ARRAY_OPERATION_OK;
-    return arr->element[i].middle_name;
+    return arr->element[i].middle_name; 
 }
 
 char* get_last_name(array* arr, unsigned int i, array_errors* error){
@@ -269,12 +269,3 @@ char* get_student_direction(array* arr, unsigned int i, array_errors* error){
     *error = ARRAY_OPERATION_OK;
     return ((student*)&arr->element[i])->data.direction;
 }
-
-
-
-
-
-
-
-
-//мэйк 

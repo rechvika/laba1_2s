@@ -32,6 +32,10 @@ unsigned short get_birth_date(array* arr, unsigned int i, array_errors* error);
 char* get_full_birth (array* arr, unsigned int i, array_errors* error);
 char* map_function(array* arr, unsigned int i, array_errors* error);
 
+array* create_array(unsigned int capacity, struct typeinfo* type_info, array_errors* error);
+void array_add(array* arr, person* p, array_errors* error);
+void free_array(array* arr);
+
 char* get_teacher_subject(array* arr, unsigned int i, array_errors* error);
 char* get_student_direction(array* arr, unsigned int i, array_errors* error);
 

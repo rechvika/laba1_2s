@@ -32,19 +32,19 @@ int conclusion(){
     scanf("%d", &type_choice);
     getchar();
     
-    array* persons = NULL;
+    array* arr = NULL;
     
     switch(type_choice){
         case 1:
-            persons = create_test_person();
+            arr = create_test_person();
             printf("\n+++ Загружен массив Person +++\n");
             break;
         case 2:
-            persons = create_test_teachers();
+            arr = create_test_teachers();
             printf("\n+++ Загружен массив Teachers +++\n");
             break;
         case 3:
-            persons = create_test_students();
+            arr = create_test_students();
             printf("\n+++ Загружен массив Students +++\n");
             break;
         default:
@@ -64,67 +64,72 @@ int conclusion(){
 
         if (strcmp(choice, "1") == 0){
             printf("+++ Вы выбрали получить серию паспорта +++\n");
-            char* result = serialize_series(persons, 0, &error);
+            char* result = serialize_series(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "2") == 0){
             printf("+++ Вы выбрали получить номер паспорта +++\n");
-            char* result = serialize_number(persons, 0, &error);
+            char* result = serialize_number(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "12") == 0){
             printf("+++ Вы выбрали получить id (серию и номер) +++\n");
-            char* result = serialize_full_id(persons, 0, &error);
+            char* result = serialize_full_id(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "3") == 0){
             printf("+++ Вы выбрали получить имя +++\n");
-            char* result = serialize_first_name(persons, 0, &error);
+            char* result = serialize_first_name(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "4") == 0){
             printf("+++ Вы выбрали получить фамилию +++\n");
-            char* result = serialize_last_name(persons, 0, &error);
+            char* result = serialize_last_name(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "5") == 0){
             printf("+++ Вы выбрали получить отчество +++\n");
-            char* result = serialize_middle_name(persons, 0, &error);
+            char* result = serialize_middle_name(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "345") == 0){
             printf("+++ Вы выбрали получить ФИО +++\n");
-            char* result = serialize_full_name(persons, 0, &error);
+            char* result = serialize_full_name(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "6") == 0){
             printf("+++ Вы выбрали получить год рождения +++\n");
-            char* result = serialize_birth_year(persons, 0, &error);
+            char* result = serialize_birth_year(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "7") == 0){
             printf("+++ Вы выбрали получить месяц рождения +++\n");
-            char* result = serialize_birth_month(persons, 0, &error);
+            char* result = serialize_birth_month(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "8") == 0){
             printf("+++ Вы выбрали получить день рождения +++\n");
-            char* result = serialize_birth_date(persons, 0, &error);
+            char* result = serialize_birth_date(arr, 0, &error);
+            print_serialized(result, error);
+        }
+        else if (strcmp(choice, "1234") == 0){
+            printf("+++ Вы выбрали получить всю информацию о персоне +++\n");
+            char* result = serialize_person(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "678") == 0){
             printf("+++ Вы выбрали получить дату рождения +++\n");
-            char* result = serialize_full_birth(persons, 0, &error);
+            char* result = serialize_full_birth(arr, 0, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "17") == 0){
             printf("+++ Вы выбрали получить массив совершеннолетних людей +++\n");
-            char* result = serialize_adults_list(persons, &error);
+            char* result = serialize_where_list(arr, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "33") == 0){
             printf("+++ Вы выбрали получить массив имен людей +++\n");
-            char* result = serialize_names_list(persons, &error);
+            char* result = serialize_map_list(arr, &error);
             print_serialized(result, error);
         }
         else if (strcmp(choice, "exit") == 0){
@@ -138,7 +143,7 @@ int conclusion(){
         printf("\n");
     }
     
-    free_array(persons);
+    free_array(arr);
     return 0;
 }
 
@@ -209,6 +214,11 @@ void show_buttons(void){
     printf("|   ++++++++++++++++++++++++  |\n");
     printf("|   +         678          +  |\n");
     printf("|   +Получить дату рождения+  |\n");
+    printf("|   ++++++++++++++++++++++++  |\n");
+    printf("|                             |\n");
+    printf("|   ++++++++++++++++++++++++  |\n");
+    printf("|   +         1234         +  |\n");
+    printf("|   + Получить всю персону +  |\n");
     printf("|   ++++++++++++++++++++++++  |\n");
     printf("|                             |\n");
     printf("| +++++++++++++++++++++++++++ |\n");
