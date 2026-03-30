@@ -43,14 +43,14 @@ run: $(TARGET)
 
 $(TARGET): $(SRC_DIR)/main.c $(OBJS)
 	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $^ -o $@ 
 
 test: $(TEST_TARGET)
 	build/tests.exe
 
 $(TEST_TARGET): $(TEST_SRCS) $(OBJS)
 	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+	$(CC) $(CFLAGS) $^ -o $@ 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
