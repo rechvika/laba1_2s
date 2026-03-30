@@ -6,7 +6,6 @@ SRC_DIR = src
 OBJ_DIR = obj
 BUILD_DIR = build
 TESTS_DIR = tests
-TESTS_SRC_DIR = tests/src
 
 SRCS = $(SRC_DIR)/array_of_person.c \
        $(SRC_DIR)/concatenation.c \
