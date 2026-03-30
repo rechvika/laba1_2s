@@ -577,7 +577,7 @@ unsigned short custom_condition_name_starts_with_I(array* arr, unsigned int i, a
         return 0;
     }
     *error = ARRAY_OPERATION_OK;
-    return arr->element[i].first_name[0] == 'И';
+    return arr->element[i].first_name[0] == 'I';
 }
 
 TEST(test_where_with_custom_condition_year) {

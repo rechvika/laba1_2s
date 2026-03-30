@@ -17,7 +17,7 @@ void run_test();
     static void test_name##_test(); \
     static void __attribute__((constructor)) \
     __##test_name##_test(){ \
-        registr_test(#test_name, test_name##_test); \
+        register_test(#test_name, test_name##_test); \
     } \
     static void test_name##_test()
 

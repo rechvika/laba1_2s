@@ -64,30 +64,28 @@ TEST(test_create_person) {
 }
 
 TEST(test_create_teacher) {
-    person_id id = {1111, 111111};
+    person_id id = {1111, 2222};
     birth_date birth = {1980, "Январь", 17};
     
     teacher* t = create_teacher(id, "Иван", "Иванович", "Петров", birth, "Математика");
     
     assert(t != NULL);
-    assert(t->base != NULL);
-    assert(t->base->vtable != NULL);
-    assert(t->base->id.series == 1111);
+    assert(t->base.vtable != NULL);
+    assert(t->base.id.series == 1111);
     assert(strcmp(t->data.subject, "Математика") == 0);
     
     free(t);
 }
 
 TEST(test_create_student) {
-    person_id id = {1234, 567890};
+    person_id id = {1234, 5678};
     birth_date birth = {2005, "Февраль", 10};
     
     student* s = create_student(id, "Иван", "Иванович", "Петров", birth, "Информатика");
     
     assert(s != NULL);
-    assert(s->base != NULL);
-    assert(s->base->vtable != NULL);
-    assert(s->base->id.series == 1234);
+    assert(s->base.vtable != NULL);
+    assert(s->base.id.series == 1234);
     assert(strcmp(s->data.direction, "Информатика") == 0);
     
     free(s);

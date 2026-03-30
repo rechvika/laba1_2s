@@ -102,7 +102,7 @@ TEST(test_array_add_very_many_elements) {
     array_errors error;
     array* arr = create_array(10, info, &error);
     
-    int test_size = 1000;
+    unsigned int test_size = 1000;
     for(int i = 0; i < test_size; i++) {
         person p;
         p.id.series = i;

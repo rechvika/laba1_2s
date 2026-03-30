@@ -2,9 +2,6 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Iinclude -Itests/include
 
-LDFLAGS = 
-LDLIBS = 
-
 SRC_DIR = src
 OBJ_DIR = obj
 BUILD_DIR = build

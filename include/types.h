@@ -20,7 +20,7 @@
 
 typedef struct person_id{
     unsigned short series;
-    unsigned short number;
+    int number;
 } person_id;
 
 typedef struct birth_date{

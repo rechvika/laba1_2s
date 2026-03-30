@@ -1,4 +1,4 @@
-#include "assetions.h"
+#include "assertions.h"
 
 static size_t success_count = 0;
 static size_t fail_count = 0;
@@ -22,7 +22,7 @@ int pop_fail(){
 int pop_success(){
     int tmp = success_count_local;
     success_count_local = 0;
-    rerturn tmp;
+    return tmp;
 }
 
 int assert_fail(const char* expr, const char* file, size_t leneno){
@@ -31,7 +31,7 @@ int assert_fail(const char* expr, const char* file, size_t leneno){
     return 0;
 }
 
-iint assert_success(const char* expr, const char* file, size_t lineno) {
+int assert_success(const char* expr, const char* file, size_t lineno) {
     fprintf(stderr, "\033[0;32m%s:%d:\t %s PASSED \033[0m\n", file, lineno, expr);   
     inc_success();
     return 0;
