@@ -42,21 +42,21 @@ TEST_TARGET = $(BUILD_DIR)/tests.exe
 all: $(TARGET)
 
 run: $(TARGET)
-	./$(TARGET)
+	build/program.exe
 
 $(TARGET): $(SRC_DIR)/main.c $(OBJS)
-	mkdir -p $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 test: $(TEST_TARGET)
-	./$(TEST_TARGET)
+	build/tests.exe
 
 $(TEST_TARGET): $(TEST_SRCS) $(OBJS)
-	mkdir -p $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
