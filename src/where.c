@@ -9,7 +9,7 @@ unsigned short age_verification(array* arr, unsigned int i, array_errors* error)
         *error = INDEX_OUT_OF_BOUNDS;
         return 0;
     }
-    unsigned short age = 2026 - arr->element[i].birth.year;
+    unsigned short age = 2026 - ((person*)((char*)arr->element + i * arr->typeinfo->size))->birth.year;
     *error = ARRAY_OPERATION_OK;
     return age >= 18;
 }
@@ -40,8 +40,7 @@ array* where(array* arr, unsigned short (*function)(array*, unsigned int, array_
         }
 
         if(condition){
-            person* elem = (person*)((char*)arr->element + (i * arr->typeinfo->size));
-            array_add(where_array, elem, &temp_error);
+            array_add(where_array, (person*)((char*)arr->element + (i * arr->typeinfo->size)), &temp_error);
             if (temp_error != ARRAY_OPERATION_OK) {
                 free_array(where_array);
                 *error = temp_error;

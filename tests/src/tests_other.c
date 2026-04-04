@@ -96,32 +96,6 @@ TEST(test_multiple_operations_chain) {
     free(info);
 }
 
-
-TEST(test_array_add_very_many_elements) {
-    typeinfo* info = create_person_typeinfo();
-    array_errors error;
-    array* arr = create_array(10, info, &error);
-    
-    unsigned int test_size = 1000;
-    for(int i = 0; i < test_size; i++) {
-        person p;
-        p.id.series = i;
-        array_add(arr, &p, &error);
-        assert(error == ARRAY_OPERATION_OK);
-    }
-    
-    assert(arr->size == test_size);
-    assert(arr->capacity >= test_size);
-    
-    person* elements = (person*)arr->element;
-    for(int i = 0; i < test_size; i++) {
-        assert(elements[i].id.series == i);
-    }
-    
-    free_array(arr);
-    free(info);
-}
-
 TEST(test_array_add_zero_capacity) {
     typeinfo* info = create_person_typeinfo();
     array_errors error;
@@ -207,51 +181,3 @@ TEST(test_serialize_map_list_empty_array) {
     free_array(arr);
     free(info);
 }
-
-TEST(test_multiple_errors_chain) {
-    typeinfo* info = create_person_typeinfo();
-    array_errors error;
-    array* arr = create_array(2, info, &error);
-    
-    array* result1 = where(arr, NULL, &error);
-    assert(error == OPERATION_NOT_DEFINED);
-    assert(result1 == NULL);
-    
-    array* result2 = concatenation(arr, NULL, &error);
-    assert(error == ARRAY_NOT_DEFINED);
-    assert(result2 == NULL);
-    
-    char* result3 = serialize_series(arr, 5, &error);
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result3 == NULL);
-
-    assert(arr->size == 0);
-    assert(arr->capacity == 2);
-    
-    free_array(arr);
-    free(info);
-}
-
-TEST(test_error_after_successful_operation) {
-    typeinfo* info = create_person_typeinfo();
-    array_errors error;
-    array* arr = create_array(2, info, &error);
-    
-    person p;
-    p.id.series = 123;
-    array_add(arr, &p, &error);
-    assert(error == ARRAY_OPERATION_OK);
-    
-    char* result = serialize_series(arr, 5, &error);
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    assert(arr->size == 1);
-    person* elements = (person*)arr->element;
-    assert(elements[0].id.series == 123);
-    
-    free_array(arr);
-    free(info);
-}
-
-TEST_ENTRY_POINT

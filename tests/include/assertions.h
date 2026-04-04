@@ -1,14 +1,14 @@
 #pragma once 
 #include <stdio.h>
 
+void int_success();
+void int_fail();
+int pop_fail();
+int pop_success();
+
 int assert_success(const char *expr, const char *file, size_t lineno);
 int assert_fail(const char *expr, const char *file, size_t lineno);
 int print_stats();
-
-void inc_success();
-void inc_fail();
-int pop_fail();
-int pop_success();
 
 #define assert(expr) \
     ((!!(expr)) \

@@ -21,9 +21,7 @@ array* concatenation(array* arr_1, array* arr_2, array_errors* error){
     memcpy(arr_new->element, arr_1->element, arr_1->size * arr_1->typeinfo->size);
     arr_new->size += arr_1->size;
 
-    memcpy((char*)arr_new->element + (arr_1->size * arr_1->typeinfo->size), 
-           arr_2->element, 
-           arr_2->size * arr_2->typeinfo->size);
+    memcpy((char*)arr_new->element + (arr_1->size * arr_1->typeinfo->size), arr_2->element, arr_2->size * arr_2->typeinfo->size);
     arr_new->size += arr_2->size;
     
     *error = ARRAY_OPERATION_OK;

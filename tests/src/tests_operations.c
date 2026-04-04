@@ -494,8 +494,6 @@ TEST(test_map_function_returns_null) {
     free(info);
 }
 
-
-
 TEST(test_concatenation_first_larger) {
     typeinfo* info = create_person_typeinfo();
     array_errors error;
@@ -627,5 +625,3 @@ TEST(test_where_with_custom_condition_name) {
     free_array(filtered);
     free(info);
 }
-
-TEST_ENTRY_POINT

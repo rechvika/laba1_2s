@@ -27,13 +27,13 @@ int pop_success(){
 
 int assert_fail(const char* expr, const char* file, size_t leneno){
     fprintf(stderr, "\033[0;31m%s:%d:\t %s FAILED \033[0m\n", file, leneno, expr);
-    inc_fail();
+    int_fail();
     return 0;
 }
 
 int assert_success(const char* expr, const char* file, size_t lineno) {
     fprintf(stderr, "\033[0;32m%s:%d:\t %s PASSED \033[0m\n", file, lineno, expr);   
-    inc_success();
+    int_success();
     return 0;
 }
 

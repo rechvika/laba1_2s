@@ -19,13 +19,13 @@ void register_test(const char* name, test_func test){
 
 void run_test(){
     for(_test* t = head; t != NULL; t = t->next){
-        fprintf(stderr, "\n===TESTING CASE: %s===\n\n", t->name);
+        fprintf(stderr, "\n+++TESTING CASE: %s+++\n\n", t->name);
         t->test();
         int succs = pop_success();
         int all = pop_fail() + succs;
-        fprintf(stderr, "\n===%d of %d tests passed"
+        fprintf(stderr, "\n+++%d of %d tests passed"
             "%.2f SUCCEEDED"
-            "===\n\n", succs, all,
+            "+++\n\n", succs, all,
             (float)succs/(float)all
         );
     }

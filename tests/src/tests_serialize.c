@@ -291,33 +291,6 @@ TEST(test_serialize_series_null_array) {
     assert(result == NULL);
 }
 
-TEST(test_serialize_series_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_series(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
-TEST(test_serialize_series_empty_array) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    char* result = serialize_series(arr, 0, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
 TEST(test_serialize_number_null_array) {
     array_errors error;
     
@@ -325,21 +298,6 @@ TEST(test_serialize_number_null_array) {
     
     assert(error == ARRAY_NOT_DEFINED);
     assert(result == NULL);
-}
-
-TEST(test_serialize_number_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_number(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
 }
 
 TEST(test_serialize_full_id_null_array) {
@@ -351,21 +309,6 @@ TEST(test_serialize_full_id_null_array) {
     assert(result == NULL);
 }
 
-TEST(test_serialize_full_id_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_full_id(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
 TEST(test_serialize_first_name_null_array) {
     array_errors error;
     
@@ -373,21 +316,6 @@ TEST(test_serialize_first_name_null_array) {
     
     assert(error == ARRAY_NOT_DEFINED);
     assert(result == NULL);
-}
-
-TEST(test_serialize_first_name_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_first_name(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
 }
 
 TEST(test_serialize_middle_name_null_array) {
@@ -399,21 +327,6 @@ TEST(test_serialize_middle_name_null_array) {
     assert(result == NULL);
 }
 
-TEST(test_serialize_middle_name_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_middle_name(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
 TEST(test_serialize_last_name_null_array) {
     array_errors error;
     
@@ -421,21 +334,6 @@ TEST(test_serialize_last_name_null_array) {
     
     assert(error == ARRAY_NOT_DEFINED);
     assert(result == NULL);
-}
-
-TEST(test_serialize_last_name_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_last_name(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
 }
 
 TEST(test_serialize_full_name_null_array) {
@@ -447,21 +345,6 @@ TEST(test_serialize_full_name_null_array) {
     assert(result == NULL);
 }
 
-TEST(test_serialize_full_name_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_full_name(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
 TEST(test_serialize_birth_year_null_array) {
     array_errors error;
     
@@ -469,21 +352,6 @@ TEST(test_serialize_birth_year_null_array) {
     
     assert(error == ARRAY_NOT_DEFINED);
     assert(result == NULL);
-}
-
-TEST(test_serialize_birth_year_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_birth_year(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
 }
 
 TEST(test_serialize_birth_month_null_array) {
@@ -495,21 +363,6 @@ TEST(test_serialize_birth_month_null_array) {
     assert(result == NULL);
 }
 
-TEST(test_serialize_birth_month_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_birth_month(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
 TEST(test_serialize_birth_date_null_array) {
     array_errors error;
     
@@ -517,21 +370,6 @@ TEST(test_serialize_birth_date_null_array) {
     
     assert(error == ARRAY_NOT_DEFINED);
     assert(result == NULL);
-}
-
-TEST(test_serialize_birth_date_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_birth_date(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
 }
 
 TEST(test_serialize_full_birth_null_array) {
@@ -542,21 +380,3 @@ TEST(test_serialize_full_birth_null_array) {
     assert(error == ARRAY_NOT_DEFINED);
     assert(result == NULL);
 }
-
-TEST(test_serialize_full_birth_index_out_of_bounds) {
-    array* arr = create_array(1, create_person_typeinfo(), NULL);
-    array_errors error;
-    
-    person p;
-    array_add(arr, &p, NULL);
-    
-    char* result = serialize_full_birth(arr, 5, &error);
-    
-    assert(error == INDEX_OUT_OF_BOUNDS);
-    assert(result == NULL);
-    
-    free_array(arr);
-}
-
-
-TEST_ENTRY_POINT

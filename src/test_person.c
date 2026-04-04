@@ -41,7 +41,7 @@ array* create_test_teachers(){
     
     person_id id3 = {3333, 333333};
     birth_date birth3 = {2020, "Июнь", 18};
-    teacher* t3 = create_teacher(id2, "Крош", "Барашович", "Капатович", birth2, "История смешариков");
+    teacher* t3 = create_teacher(id3, "Крош", "Барашович", "Капатович", birth2, "История смешариков");
 
     array_add(test_array, (person*)t1, NULL);
     array_add(test_array, (person*)t2, NULL);

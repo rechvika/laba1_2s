@@ -250,5 +250,3 @@ TEST(test_all_get_functions_null_array) {
     assert(get_full_birth(NULL, 0, &error) == NULL);
     assert(error == ARRAY_NOT_DEFINED);
 }
-
-TEST_ENTRY_POINT

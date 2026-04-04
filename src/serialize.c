@@ -10,7 +10,7 @@ char* serialize_series(array* arr, unsigned int i, array_errors* error){
     unsigned short series = get_series(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(20);
+    char* result = (char*)malloc(40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -29,7 +29,7 @@ char* serialize_number(array* arr, unsigned int i, array_errors* error){
     unsigned short number = get_number(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(20);
+    char* result = (char*)malloc(40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -48,7 +48,7 @@ char* serialize_full_id(array* arr, unsigned int i, array_errors* error){
     char* full_id = get_full_id(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(30);
+    char* result = (char*)malloc(40);
     if (result == NULL) {
         free(full_id);
         *error = MEMORY_ALLOCATION_FAILED;
@@ -69,7 +69,7 @@ char* serialize_first_name(array* arr, unsigned int i, array_errors* error){
     char* name = get_first_name(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(MAX_LINE_NAME + 20);
+    char* result = (char*)malloc(MAX_LINE_NAME + 40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -88,7 +88,7 @@ char* serialize_middle_name(array* arr, unsigned int i, array_errors* error){
     char* middlename = get_middle_name(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(MAX_LINE_NAME + 20);
+    char* result = (char*)malloc(MAX_LINE_NAME + 40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -107,7 +107,7 @@ char* serialize_last_name(array* arr, unsigned int i, array_errors* error){
     char* lastname = get_last_name(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(MAX_LINE_NAME + 20);
+    char* result = (char*)malloc(MAX_LINE_NAME + 40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -126,7 +126,7 @@ char* serialize_full_name(array* arr, unsigned int i, array_errors* error){
     char* full_name = get_full_name(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(FULL_NAME + 20);
+    char* result = (char*)malloc(FULL_NAME + 40);
     if (result == NULL) {
         free(full_name);
         *error = MEMORY_ALLOCATION_FAILED;
@@ -147,7 +147,7 @@ char* serialize_birth_year(array* arr, unsigned int i, array_errors* error){
     unsigned short year = get_birth_year(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(20);
+    char* result = (char*)malloc(40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -166,7 +166,7 @@ char* serialize_birth_month(array* arr, unsigned int i, array_errors* error){
     char* month = get_birth_month(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(MAX_LINE_MONTH + 20);
+    char* result = (char*)malloc(MAX_LINE_MONTH + 40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -185,7 +185,7 @@ char* serialize_birth_date(array* arr, unsigned int i, array_errors* error){
     unsigned short date = get_birth_date(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(20);
+    char* result = (char*)malloc(40);
     if (result == NULL) {
         *error = MEMORY_ALLOCATION_FAILED;
         return NULL;
@@ -204,7 +204,7 @@ char* serialize_full_birth(array* arr, unsigned int i, array_errors* error){
     char* full_birth = get_full_birth(arr, i, error);
     if (*error != ARRAY_OPERATION_OK) return NULL;
     
-    char* result = (char*)malloc(FULL_BIRTH + 20);
+    char* result = (char*)malloc(FULL_BIRTH + 40);
     if (result == NULL) {
         free(full_birth);
         *error = MEMORY_ALLOCATION_FAILED;

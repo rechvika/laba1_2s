@@ -90,5 +90,3 @@ TEST(test_create_student) {
     
     free(s);
 }
-
-TEST_ENTRY_POINT

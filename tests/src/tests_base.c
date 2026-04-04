@@ -381,10 +381,3 @@ TEST(test_get_full_birth_null_array) {
     assert(error == ARRAY_NOT_DEFINED);
     assert(full_birth == NULL);
 }
-
-
-
-
-
-
-TEST_ENTRY_POINT

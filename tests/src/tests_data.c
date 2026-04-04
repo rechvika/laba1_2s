@@ -111,5 +111,3 @@ TEST(test_get_student_direction_index_out_of_bounds) {
     free(info);
     free(s);
 }
-
-TEST_ENTRY_POINT
